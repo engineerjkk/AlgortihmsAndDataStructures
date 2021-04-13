@@ -10,11 +10,11 @@ void main()
 	while (true) {
 		int nCtr;
 		printf("Disks ? ");
-		scanf("%d", &nCtr);			// ¿Å±â´Â Å¾ÀÇ ÃşÀ» ÀÔ·Â ¹Ş´Â´Ù.
+		scanf("%d", &nCtr);			// ì˜®ê¸°ëŠ” íƒ‘ì˜ ì¸µì„ ì…ë ¥ ë°›ëŠ”ë‹¤.
 		if (nCtr <= 0)
 			break;
 		void hanoi(int nDisk, int nFrom, int nTo);
-		hanoi(nCtr, 1, 2);			// Å¾À» 1¿¡¼­ 2·Î ¿Å±â½Ã¿ä.
+		hanoi(nCtr, 1, 2);			// íƒ‘ì„ 1ì—ì„œ 2ë¡œ ì˜®ê¸°ì‹œìš”.
 		putchar(10);
 	}
 }
@@ -26,9 +26,9 @@ void hanoi(int nDisk, int nFrom, int nTo)
 }
 	else {
 		int nTemp = 6 - nFrom - nTo;
-		hanoi(nDisk - 1, nFrom, nTemp);// À§ÀÇ n-1°³ ÃşÀ» ¿ì¼± ³ª¸ÓÁö À§Ä¡·Î ÇÇ½ÅÇØµÎ°í
-		hanoi(1, nFrom, nTo);// ¸Ç ¾Æ·¡ ÃşÀ» ¸ñÀûÁö·Î ¿ñ±â°í
-		hanoi(nDisk - 1, nTemp, nTo);// ÇÇ½ÅÇØ µĞ À§ÀÇ n-1°³ÀÇ ÃşÀ» ¸ñÀûÁö·Î ¿Å±ä´Ù.
+		hanoi(nDisk - 1, nFrom, nTemp);// ìœ„ì˜ n-1ê°œ ì¸µì„ ìš°ì„  ë‚˜ë¨¸ì§€ ìœ„ì¹˜ë¡œ í”¼ì‹ í•´ë‘ê³ 
+		hanoi(1, nFrom, nTo);// ë§¨ ì•„ë˜ ì¸µì„ ëª©ì ì§€ë¡œ ìšºê¸°ê³ 
+		hanoi(nDisk - 1, nTemp, nTo);// í”¼ì‹ í•´ ë‘” ìœ„ì˜ n-1ê°œì˜ ì¸µì„ ëª©ì ì§€ë¡œ ì˜®ê¸´ë‹¤.
 	}
 	   /*2
 		(1,1,3) 1->3
