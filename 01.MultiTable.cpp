@@ -17,7 +17,7 @@ void MultiTbl()
 		MultiTblDan(i);
 	}
 }
-	// 2´ÜºÎÅÍ 9´Ü±îÁö ±¸±¸´ÜÀ» Ãâ·ÂÇÑ´Ù.
+	// 2ë‹¨ë¶€í„° 9ë‹¨ê¹Œì§€ êµ¬êµ¬ë‹¨ì„ ì¶œë ¥í•œë‹¤.
 
 
 void MultiTblDan(int nDan)
@@ -28,7 +28,7 @@ void MultiTblDan(int nDan)
 		MultiTblRow(nDan, i);
 	}
 	printf("\n");
-	// ±¸±¸´ÜÀÇ ÇÑ ´Ü(nDan)À» Ãâ·ÂÇÑ´Ù
+	// êµ¬êµ¬ë‹¨ì˜ í•œ ë‹¨(nDan)ì„ ì¶œë ¥í•œë‹¤
 }
 
 void MultiTblRow(int nDan, int nRow)
@@ -36,7 +36,7 @@ void MultiTblRow(int nDan, int nRow)
 	int Sol = nDan * nRow;
 
 	printf("%d x %d = %2d\n", nDan, nRow, Sol);
-	// ±¸±¸´ÜÀÇ ÇÑ ÇàÀ» Ãâ·ÂÇÑ´Ù
+	// êµ¬êµ¬ë‹¨ì˜ í•œ í–‰ì„ ì¶œë ¥í•œë‹¤
 }
 
 
