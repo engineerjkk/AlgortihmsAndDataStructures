@@ -10,7 +10,7 @@ void checkMagicSquare(int nMagicSqr[N][N], int nN);
 void main()
 {
 	int nMagicSqr[N][N];
-	int nN; //ÀÔ·Â¹ŞÀ» ¸¶¹æÁø°ª
+	int nN; //ì…ë ¥ë°›ì„ ë§ˆë°©ì§„ê°’
 
 	while (1) {
 		printf("? ");
@@ -19,9 +19,9 @@ void main()
 			break;
 		
 		
-		makeMagicSquare(nMagicSqr, nN);//¸¶¹æÁøÀ» ¸¸µé¾î¶ó
-		showMagicSquare(nMagicSqr, nN);//¸¶¹æÁøÀ» Ãâ·ÂÇÏ¶ó
-		checkMagicSquare(nMagicSqr, nN);//¸¶¹æÁøÀ» Ã¼Å©ÇÏ¶ó
+		makeMagicSquare(nMagicSqr, nN);//ë§ˆë°©ì§„ì„ ë§Œë“¤ì–´ë¼
+		showMagicSquare(nMagicSqr, nN);//ë§ˆë°©ì§„ì„ ì¶œë ¥í•˜ë¼
+		checkMagicSquare(nMagicSqr, nN);//ë§ˆë°©ì§„ì„ ì²´í¬í•˜ë¼
 		printf("\n");
 	}
 	printf("Bye, ....\n");
@@ -32,22 +32,22 @@ void makeMagicSquare(int nMagicSqr[N][N], int nN)
 	int nRow, nCol;
 	for (nRow = 0; nRow < nN; nRow++)
 		for (nCol = 0; nCol < nN; nCol++)
-			nMagicSqr[nRow][nCol] = 0;//ÀüºÎ ÃÊ±âÈ­.
+			nMagicSqr[nRow][nCol] = 0;//ì „ë¶€ ì´ˆê¸°í™”.
 
 	nMagicSqr[nRow = 0][nCol = nN / 2] = 1;
-	//0Çà °¡¿î´ë¿¡ 1À» ³Ö¾îÁØ´Ù.
+	//0í–‰ ê°€ìš´ëŒ€ì— 1ì„ ë„£ì–´ì¤€ë‹¤.
 	int nNmbr = 1, nCell = nN * nN;
 	while (++nNmbr <= nCell) {
 		int nPreRow = nRow, nPreCol = nCol;
 		nRow = (nRow - 1 + nN) % nN;
-		//nRow = nRow - 1; ÀÌ´ë·ÎÇÏ¸é À½¼ö°¡ ³ª¿Ã ¼ö ÀÖÀ¸´Ï, À½¼ö°¡µÇ¸é °á±¹ n-1ÀÌµÇ°Ô ¸¸µé¾ú´Ù.
-		nCol = (nCol + 1) % nN; //¿À¹öÇÃ·Î¿ì¸¦ ¹æÁöÇÏ±â À§ÇØ nNÀÇ ³ª¸ÓÁö¿¬»êÀ» ÃëÇÑ´Ù.
-		//nCol = nCol + 1; ÀÌ´ë·ÎÇÏ¸é ¿À¹öÇÃ·¯¿ì°¡ µÉ¼öÀÖÀ½
-		//±âº»ÀûÀ¸·Î +1À» µ¿ºÏÂÊÀ¸·Î °£´Ù. 
-		if (nMagicSqr[nRow][nCol]) //ÀÌ¹Ì ¼ıÀÚ°ªÀÌ ÀÖ´Ù¸é,³²ÂÊÀ¸·Î°£´Ù.
+		//nRow = nRow - 1; ì´ëŒ€ë¡œí•˜ë©´ ìŒìˆ˜ê°€ ë‚˜ì˜¬ ìˆ˜ ìˆìœ¼ë‹ˆ, ìŒìˆ˜ê°€ë˜ë©´ ê²°êµ­ n-1ì´ë˜ê²Œ ë§Œë“¤ì—ˆë‹¤.
+		nCol = (nCol + 1) % nN; //ì˜¤ë²„í”Œë¡œìš°ë¥¼ ë°©ì§€í•˜ê¸° ìœ„í•´ nNì˜ ë‚˜ë¨¸ì§€ì—°ì‚°ì„ ì·¨í•œë‹¤.
+		//nCol = nCol + 1; ì´ëŒ€ë¡œí•˜ë©´ ì˜¤ë²„í”ŒëŸ¬ìš°ê°€ ë ìˆ˜ìˆìŒ
+		//ê¸°ë³¸ì ìœ¼ë¡œ +1ì„ ë™ë¶ìª½ìœ¼ë¡œ ê°„ë‹¤. 
+		if (nMagicSqr[nRow][nCol]) //ì´ë¯¸ ìˆ«ìê°’ì´ ìˆë‹¤ë©´,ë‚¨ìª½ìœ¼ë¡œê°„ë‹¤.
 		{
-			nRow = (nPreRow + 1) % nN;//¾Æ·¡ ÇàÀ¸·Î ÀÌµ¿.
-			nCol = nPreCol; //¿­Àº ±×·¡µµ ÀÖÀ¸´Ï ¹Ù²îÁö¾Ê´Â´Ù.
+			nRow = (nPreRow + 1) % nN;//ì•„ë˜ í–‰ìœ¼ë¡œ ì´ë™.
+			nCol = nPreCol; //ì—´ì€ ê·¸ë˜ë„ ìˆìœ¼ë‹ˆ ë°”ë€Œì§€ì•ŠëŠ”ë‹¤.
 
 
 		}
@@ -59,7 +59,7 @@ void makeMagicSquare(int nMagicSqr[N][N], int nN)
 
 void showMagicSquare(int nMagicSqr[N][N], int nN)
 {
-	printf("\n[¸¶¹æÁø]\n");
+	printf("\n[ë§ˆë°©ì§„]\n");
 
 	for(int nRow=0;nRow<nN;nRow++){
 		for (int nCol=0; nCol < nN; nCol++) {
@@ -79,17 +79,17 @@ void checkMagicSquare(int nMagicSqr[N][N], int nN)
 	void checkMagicSquareDgl(int nMagicSqr[N][N], int nN, int nDir);
 	checkMagicSquareRow(nMagicSqr, nN);
 	checkMagicSquareCol(nMagicSqr, nN);
-	printf("\n[´ë°¢¼± °Ë»ç]\n");
+	printf("\n[ëŒ€ê°ì„  ê²€ì‚¬]\n");
 	checkMagicSquareDgl(nMagicSqr, nN, '\\');
 	checkMagicSquareDgl(nMagicSqr, nN, '/');
 }
 
 void checkMagicSquareRow(int nMagicSqr[N][N], int nN)
 {
-	printf("\n[Çà °Ë»ç]\n");
+	printf("\n[í–‰ ê²€ì‚¬]\n");
 	//
 	for (int nRow=0; nRow < nN; nRow++) {
-		printf("Çà%2d: ", nRow);
+		printf("í–‰%2d: ", nRow);
 		int nSum = 0;
 		for (int nCol = 0; nCol < nN; nCol++) {
 			if (nCol)
@@ -106,9 +106,9 @@ void checkMagicSquareRow(int nMagicSqr[N][N], int nN)
 //
 void checkMagicSquareCol(int nMagicSqr[N][N], int nN)
 {
-	printf("\n[¿­ °Ë»ç]\n");
+	printf("\n[ì—´ ê²€ì‚¬]\n");
 	for (int nCol = 0; nCol < nN; nCol++) {
-		printf("¿­%2d: ", nCol);
+		printf("ì—´%2d: ", nCol);
 		int nSum = 0;
 		for (int nRow = 0; nRow < nN; nRow++) {
 			if (nRow)
@@ -123,7 +123,7 @@ void checkMagicSquareCol(int nMagicSqr[N][N], int nN)
 
 void checkMagicSquareDgl(int nMagicSqr[N][N], int nN, int nDir)
 {
-	printf("´ë %c: ",nDir);
+	printf("ëŒ€ %c: ",nDir);
 	int nSum = 0;
 	if (nDir == '\\') {
 		for (int i = 0; i < nN; i++) {
@@ -149,30 +149,30 @@ void checkMagicSquareDgl(int nMagicSqr[N][N], int nN, int nDir)
 /*****
 ? 5
 
-[¸¶¹æÁø]
+[ë§ˆë°©ì§„]
 17  24   1   8  15
 23   5   7  14  16
  4   6  13  20  22
 10  12  19  21   3
 11  18  25   2   9
 
-[Çà °Ë»ç]
-Çà 0: 17 + 24 +  1 +  8 + 15 = 65
-Çà 1: 23 +  5 +  7 + 14 + 16 = 65
-Çà 2:  4 +  6 + 13 + 20 + 22 = 65
-Çà 3: 10 + 12 + 19 + 21 +  3 = 65
-Çà 4: 11 + 18 + 25 +  2 +  9 = 65
+[í–‰ ê²€ì‚¬]
+í–‰ 0: 17 + 24 +  1 +  8 + 15 = 65
+í–‰ 1: 23 +  5 +  7 + 14 + 16 = 65
+í–‰ 2:  4 +  6 + 13 + 20 + 22 = 65
+í–‰ 3: 10 + 12 + 19 + 21 +  3 = 65
+í–‰ 4: 11 + 18 + 25 +  2 +  9 = 65
 
-[¿­ °Ë»ç]
-¿­ 0: 17 + 23 +  4 + 10 + 11 = 65
-¿­ 1: 24 +  5 +  6 + 12 + 18 = 65
-¿­ 2:  1 +  7 + 13 + 19 + 25 = 65
-¿­ 3:  8 + 14 + 20 + 21 +  2 = 65
-¿­ 4: 15 + 16 + 22 +  3 +  9 = 65
+[ì—´ ê²€ì‚¬]
+ì—´ 0: 17 + 23 +  4 + 10 + 11 = 65
+ì—´ 1: 24 +  5 +  6 + 12 + 18 = 65
+ì—´ 2:  1 +  7 + 13 + 19 + 25 = 65
+ì—´ 3:  8 + 14 + 20 + 21 +  2 = 65
+ì—´ 4: 15 + 16 + 22 +  3 +  9 = 65
 
-[´ë°¢¼± °Ë»ç]
-´ë \: 17 +  5 + 13 + 21 +  9 = 65
-´ë /: 15 + 14 + 13 + 12 + 11 = 65
+[ëŒ€ê°ì„  ê²€ì‚¬]
+ëŒ€ \: 17 +  5 + 13 + 21 +  9 = 65
+ëŒ€ /: 15 + 14 + 13 + 12 + 11 = 65
 
 ? 0
 Bye, ....
