@@ -86,36 +86,36 @@ int IsZero(NatNo x)//1
 	// [1]:(Z)	IsZero(Zero) ::= true
 	// [2]:(N)	IsZero(Succ(x)) ::= false
 
-	if (x == Zero())	// ==¥¬ æÓ¬ø ºˆ æ¯¿Ã
+	if (x == Zero())	// ==Îäî Ïñ¥Ï©î Ïàò ÏóÜÏù¥
 		return true;	// [1]
 	return false;		// [2]
 }
 
 NatNo Succ(NatNo x)//2
 {
-	return x + 1;		// +¥¬ æÓ¬ø ºˆ æ¯¿Ã
+	return x + 1;		// +Îäî Ïñ¥Ï©î Ïàò ÏóÜÏù¥
 }
 
 NatNo Pred(NatNo x)
 {
 	if (IsZero(x))
 		return Error();
-	return x - 1;		// -¥¬ æÓ¬ø ºˆ æ¯¿Ã
+	return x - 1;		// -Îäî Ïñ¥Ï©î Ïàò ÏóÜÏù¥
 }
 
 /*** 
-	±∏«ˆ«œ±‚ ¿ß«œø© ø©±‚±Ó¡ˆ¥¬ æÓ¬ø ºˆ æ¯¿Ã 
-	¥Ÿ∏• ø¨ªÍ¿⁄∏¶ ªÁøÎ«œø¥¡ˆ∏∏
-	ø©±‚º≠∫Œ≈Õ¥¬ ¿ßø°º≠ ¡§¿«µ» ø¨ªÍ¿⁄ ¿Ãø‹ø°
-	¥Ÿ∏• ø¨ªÍ¿⁄¥¬ ¿˝¥Î∑Œ ªÁøÎ«“ ºˆ æ¯¥Ÿ.
+	Íµ¨ÌòÑÌïòÍ∏∞ ÏúÑÌïòÏó¨ Ïó¨Í∏∞ÍπåÏßÄÎäî Ïñ¥Ï©î Ïàò ÏóÜÏù¥ 
+	Îã§Î•∏ Ïó∞ÏÇ∞ÏûêÎ•º ÏÇ¨Ïö©ÌïòÏòÄÏßÄÎßå
+	Ïó¨Í∏∞ÏÑúÎ∂ÄÌÑ∞Îäî ÏúÑÏóêÏÑú Ï†ïÏùòÎêú Ïó∞ÏÇ∞Ïûê Ïù¥Ïô∏Ïóê
+	Îã§Î•∏ Ïó∞ÏÇ∞ÏûêÎäî Ï†àÎåÄÎ°ú ÏÇ¨Ïö©Ìï† Ïàò ÏóÜÎã§.
 ***/
 
 NatNo Add(NatNo x, NatNo y)//3
 {	// x + y
 	/*** Method 1 Begin ***
-	// Add(x + 1, y) ::= Add(x, y) + 1			;; ¿œπ› ø¯∏Æ
+	// Add(x + 1, y) ::= Add(x, y) + 1			;; ÏùºÎ∞ò ÏõêÎ¶¨
 	//     x  y
-	// (1) Z  A --> y							;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) Z  A --> y							;; Ï§ëÎã® Ï°∞Í±¥
 	// [1]:(Z,A)	Add(Zero(), y) ::= y
 	// [2]:(N,A)	Add(Succ(x), y) ::= Succ(Add(x, y))
 	*/
@@ -125,9 +125,9 @@ NatNo Add(NatNo x, NatNo y)//3
 	/*** Method 1 End *****/
 
 	/*** Method 2 Begin ***
-	// Add(x, y + 1) ::= Add(x, y) + 1			;; ¿œπ› ø¯∏Æ
+	// Add(x, y + 1) ::= Add(x, y) + 1			;; ÏùºÎ∞ò ÏõêÎ¶¨
 	//     x  y
-	// (1) ?  ? --> ?						;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) ?  ? --> ?						;; Ï§ëÎã® Ï°∞Í±¥
 	// (2) ~~~~
 	// [1]:(?,?)	Add(?, ?) ::= ?
 	// [2]:(?,?)	Add(?, ?) ::= ?
@@ -138,29 +138,29 @@ NatNo Add(NatNo x, NatNo y)//3
 
 int Equal(NatNo x, NatNo y)//4
 {	// x == y
-	// Equal(x + 1, y + 1) ::= Equal(x, y)		;; ¿œπ› ø¯∏Æ
+	// Equal(x + 1, y + 1) ::= Equal(x, y)		;; ÏùºÎ∞ò ÏõêÎ¶¨
 	//     x  y
-	// (1) Z  Z --> true						;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) Z  Z --> true						;; Ï§ëÎã® Ï°∞Í±¥
 	// (2) Z  N --> false
 	// (3) N  Z --> false
 	/*** Method 1 Begin ***/
-	// (1)∞˙ (2)∏¶ «’ƒß(µŒ ∞·∞˙∞° ∞¢∞¢ true, false)
+	// (1)Í≥º (2)Î•º Ìï©Ïπ®(Îëê Í≤∞Í≥ºÍ∞Ä Í∞ÅÍ∞Å true, false)
 	// [1]:(Z,A)	Equal(Zero(), y) ::= IsZero(y)				;; IF IsZero(y) THEN true ELSE false
 	// [2]:(N,Z)	Equal(Succ(x), Zero()) ::= false
 	// [3]:(N,N)	Equal(Succ(x), Succ(y)) ::= Equal(x, y)
-	if (IsZero(x))//x∞° 0¿Ã∏È
-		return IsZero(y);//Iszero∏¶ ∏Æ≈œ«ﬂ¥¬µ•
-	if (IsZero(y))//yµµ 0¿Ã∏È
-		return false;//false ∏Æ≈œ
-	return Equal(Pred(x), Pred(y));// , printf(" : %d,%d\n", x, y);//∞¢∞¢ «œ≥™æø ª´¥Ÿ. ±Ÿµ• ∏’¿˙ 0ø° µµ¥ﬁ«œ∏È, ¡ﬂ∞£ø° false∏¶ ∏Æ≈œ«œ∞⁄¡ˆ
+	if (IsZero(x))//xÍ∞Ä 0Ïù¥Î©¥
+		return IsZero(y);//IszeroÎ•º Î¶¨ÌÑ¥ÌñàÎäîÎç∞
+	if (IsZero(y))//yÎèÑ 0Ïù¥Î©¥
+		return false;//false Î¶¨ÌÑ¥
+	return Equal(Pred(x), Pred(y));// , printf(" : %d,%d\n", x, y);//Í∞ÅÍ∞Å ÌïòÎÇòÏî© Î∫ÄÎã§. Í∑ºÎç∞ Î®ºÏ†Ä 0Ïóê ÎèÑÎã¨ÌïòÎ©¥, Ï§ëÍ∞ÑÏóê falseÎ•º Î¶¨ÌÑ¥ÌïòÍ≤†ÏßÄ
 	/*** Method 1 End *****/
 
 	/*** Method 2 Begin ***
 	//     x  y
-	// (1) Z  Z --> true						;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) Z  Z --> true						;; Ï§ëÎã® Ï°∞Í±¥
 	// (2) Z  N --> false
 	// (3) N  Z --> false
-	// (1)∞˙ (3)¿ª «’ƒß
+	// (1)Í≥º (3)ÏùÑ Ìï©Ïπ®
 	// [1]:(A,Z)	Equal(x, Zero()) ::= IsZero(x)
 	// [2]:(Z,N)	Equal(Zero(), ?) ::= false
 	// [3]:(N,N)	Equal(Succ(x), Succ(y)) ::= Equal(x,y)
@@ -175,13 +175,13 @@ int Equal(NatNo x, NatNo y)//4
 
 int Greater(NatNo x, NatNo y)//5
 {	// x > y
-	// Greater(x + 1, y + 1) ::= Greater(x , y)			;; ¿œπ› ø¯∏Æ
-	/*** Method 1 Begin ***/ //»ÆΩ«»˜ πÊπ˝1¿Ã ¡¡¥Ÿ
+	// Greater(x + 1, y + 1) ::= Greater(x , y)			;; ÏùºÎ∞ò ÏõêÎ¶¨
+	/*** Method 1 Begin ***/ //ÌôïÏã§Ìûà Î∞©Î≤ï1Ïù¥ Ï¢ãÎã§
 	//     x  y
-	// (1) Z  Z --> false						;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) Z  Z --> false						;; Ï§ëÎã® Ï°∞Í±¥
 	// (2) Z  N --> false
 	// (3) N  Z --> true
-	// (1)∞˙ (2)∏¶ «’ƒß
+	// (1)Í≥º (2)Î•º Ìï©Ïπ®
 	// [1]:(Z,A)	Greater(Zero(), y) ::= false
 	// [2]:(N,Z)	Greater(Succ(x), Zero()) ::= true
 	// [3]:(N,N)	Greater(Succ(x), Succ(y)) ::= Greater(x,y)
@@ -193,10 +193,10 @@ int Greater(NatNo x, NatNo y)//5
 	/*** Method 1 End *****/
 
 	/*** Method 2 Begin ***
-	// (1) Z  Z --> false						;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) Z  Z --> false						;; Ï§ëÎã® Ï°∞Í±¥
 	// (2) N  Z --> true
 	// (3) Z  N --> false
-	// (1)∞˙ (3)¿ª «’ƒß
+	// (1)Í≥º (3)ÏùÑ Ìï©Ïπ®
 	// [1]:(A,Z)	Greater(x, Zeero()) ::= IF (IsZero(x)) THEN false ELSE true
 	// [2]:(Z,N)	Greater(Zero(), Succ(y)) ::= false
 	// [3]:(N,N)	Greater(Succ(x), Succ(y)) ::= Greater(x,y)
@@ -211,12 +211,12 @@ int Greater(NatNo x, NatNo y)//5
 
 NatNo Sub(NatNo x, NatNo y)//6
 {	// x - y
-	// Sub(x + 1, y + 1) ::= Sub(x, y)			;; ¿œπ› ø¯∏Æ
+	// Sub(x + 1, y + 1) ::= Sub(x, y)			;; ÏùºÎ∞ò ÏõêÎ¶¨
 	/*** Method 1 Begin ***/
-	// (1) Z  Z --> 0						;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) Z  Z --> 0						;; Ï§ëÎã® Ï°∞Í±¥
 	// (2) Z  N --> Error
 	// (3) N  Z --> x
-	// (1)∞˙ (2)∏¶ «’ƒß
+	// (1)Í≥º (2)Î•º Ìï©Ïπ®
 	// [1]:(Z,A)	Sub(Zero(), y) ::= IF IsZero(y) THEN Zero() ELSE Error
 	// [2]:(N,Z)	Sub(Succ(x), Zero()) ::= x
 	// [3]:(?,?)	Sub(Succ(x), Succ(y)) ::= Sub(x,y)
@@ -230,10 +230,10 @@ NatNo Sub(NatNo x, NatNo y)//6
 	/*** Method 1 End *****/
 	/*** Method 2 Begin ***
 	//     x  y
-	// (1) Z  Z --> 0						;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) Z  Z --> 0						;; Ï§ëÎã® Ï°∞Í±¥
 	// (2) Z  N --> Error
 	// (3) N  Z --> x
-	// (1)∞˙ (3)¿ª «’ƒß
+	// (1)Í≥º (3)ÏùÑ Ìï©Ïπ®
 	// [1]:(A,Z)	Sub(x, Zero()) ::= ?
 	// [2]:(Z,N)	Sub(Zero(), Succ(y)) ::= Error 
 	// [3]:(?,?)	Sub(Succ(x), Succ(y)) ::= Sub(x,y)
@@ -251,13 +251,13 @@ NatNo Sub(NatNo x, NatNo y)//6
 NatNo Mul(NatNo x, NatNo y)//7
 {	// x * y
 	/*** Method 1 Begin ***/
-	// Mul(x + 1, y) ::= Mul(x, y) + y			∞·±πø£ X∞° ¡ŸæÓµÂ¥¬ πÊ«‚¿∏∑Œ ∞°∞‘ µ»¥Ÿ.
+	// Mul(x + 1, y) ::= Mul(x, y) + y			Í≤∞Íµ≠Ïóî XÍ∞Ä Ï§ÑÏñ¥ÎìúÎäî Î∞©Ìñ•ÏúºÎ°ú Í∞ÄÍ≤å ÎêúÎã§.
 	//     x  y
-	// (1) Z   A --> Mul(0,y)::=0						X∞° ¡ŸæÓµÈ¥Ÿ∞° 0¿Ãµ«∏È 0¿Ã µ«∞Ì,
-	// (2) N  A --> Mul(x+1,y)::=Mul(x,y)+y            X∞° ∞Ëº” ¿⁄ø¨ºˆ∏È X¥¬ 1æø ¡ŸæÓµÈ∞‘ µ»¥Ÿ.  
+	// (1) Z   A --> Mul(0,y)::=0						XÍ∞Ä Ï§ÑÏñ¥Îì§Îã§Í∞Ä 0Ïù¥ÎêòÎ©¥ 0Ïù¥ ÎêòÍ≥†,
+	// (2) N  A --> Mul(x+1,y)::=Mul(x,y)+y            XÍ∞Ä Í≥ÑÏÜç ÏûêÏó∞ÏàòÎ©¥ XÎäî 1Ïî© Ï§ÑÏñ¥Îì§Í≤å ÎêúÎã§.  
 	
-	// [1]:(Z,A)	Mul(Zero(), y) ::= Zero()        X∞° ¡¶∑Œ∏È ¡¶∑Œ,
-	// [2]:(N,A)	Mul(Succ(x), y) ::= Add(Mul(x,y),y) X∞° ¿⁄ø¨ºˆ∏È «œ≥™æø ¡ŸæÓµÈ∏Èº≠ ∞ˆ«œ±‚∏¶ «—¥Ÿ. 
+	// [1]:(Z,A)	Mul(Zero(), y) ::= Zero()        XÍ∞Ä Ï†úÎ°úÎ©¥ Ï†úÎ°ú,
+	// [2]:(N,A)	Mul(Succ(x), y) ::= Add(Mul(x,y),y) XÍ∞Ä ÏûêÏó∞ÏàòÎ©¥ ÌïòÎÇòÏî© Ï§ÑÏñ¥Îì§Î©¥ÏÑú Í≥±ÌïòÍ∏∞Î•º ÌïúÎã§. 
 	if (IsZero(x))
 		return Zero();
 	return Add(Mul(Pred(x), y), y);
@@ -266,9 +266,9 @@ NatNo Mul(NatNo x, NatNo y)//7
 	/*** Method 1 End *****/
 
 	/*** Method 2 Begin ***
-	// Mul(x, y + 1) ::= Mul(x, y) + x			;; ¿œπ› ø¯∏Æ
+	// Mul(x, y + 1) ::= Mul(x, y) + x			;; ÏùºÎ∞ò ÏõêÎ¶¨
 	//     x  y
-	// (1) A  Z --> Mul(x,0)::=0						;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) A  Z --> Mul(x,0)::=0						;; Ï§ëÎã® Ï°∞Í±¥
 	// (2) A  N --> Mul(x,Succ(y))::=Add(Mul(x,y),x)
 	
 	// [1]:(A,Z)	Mul(x,Zero())::=Zero()
@@ -282,9 +282,9 @@ NatNo Mul(NatNo x, NatNo y)//7
 
 NatNo Div(NatNo x, NatNo y)//8
 {	// x / y
-	// Div(x + y, y) ::= Div(x, y) + 1			;; ¿œπ› ø¯∏Æ
+	// Div(x + y, y) ::= Div(x, y) + 1			;; ÏùºÎ∞ò ÏõêÎ¶¨
 	//     x  y
-	// (1) A  Z --> Div(x,0) ::= Error						;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) A  Z --> Div(x,0) ::= Error						;; Ï§ëÎã® Ï°∞Í±¥
 	// (2) A  N --> Div(x,y)::= IF(x,y) THEN 0 : Div(x-y,y)+1
 	// (3) Let w=Succ(y)
 	// [1]:(A,Z)	Div(x, Zero()) ::= Error
@@ -296,9 +296,9 @@ NatNo Div(NatNo x, NatNo y)//8
 
 NatNo Mod(NatNo x, NatNo y)//9
 {	// x % y
-	// Mod(x + y, y) ::= Mod(x, y)				;; ¿œπ› ø¯∏Æ
+	// Mod(x + y, y) ::= Mod(x, y)				;; ÏùºÎ∞ò ÏõêÎ¶¨
 	//     x  y
-	// (1) A  Z --> Mod(x,0) ::= Error						;; ¡ﬂ¥‹ ¡∂∞«
+	// (1) A  Z --> Mod(x,0) ::= Error						;; Ï§ëÎã® Ï°∞Í±¥
 	// (2) A  N --> Mod(x,y) ::= IF (x<y) THEN x ELSE Mod(x-y,y)
 	// Let w=Succ(y)
 	// [1]:(A,Z)	Mod(x, Zero()) ::= Error
@@ -312,7 +312,7 @@ NatNo Mod(NatNo x, NatNo y)//9
 
 /****
 
-[øπ¡¶]
+[ÏòàÏ†ú]
 NatNo Add(NatNo x, NatNo y)
 {
 	// Add(x + 1, y) = Add(x, y) + 1
@@ -320,42 +320,42 @@ NatNo Add(NatNo x, NatNo y)
 	// (1) 0  y --> y		;; simple solution
 
 	// Rule
-	// Z¥¬ Zero¿Ã∞Ì, N¥¬ Nonzero¿Ã∞Ì, A¥¬ All ¡Ô Zero/Nonzero¿”¿ª ¿«πÃ«—¥Ÿ.
+	// ZÎäî ZeroÏù¥Í≥†, NÎäî NonzeroÏù¥Í≥†, AÎäî All Ï¶â Zero/NonzeroÏûÑÏùÑ ÏùòÎØ∏ÌïúÎã§.
 	// [1]:(Z,A)	Add(Zero(), y) ::= y						;; 0 + y ::= y
 	// [2]:(N,A)	Add(Succ(x), y) ::= Succ(Add(x, y))
 
 	// Coding
-	if (IsZero(x))						// y¥¬ æ∆π´∑± ¡¶æ‡¡∂∞«¿Ã æ¯¿Ω
+	if (IsZero(x))						// yÎäî ÏïÑÎ¨¥Îü∞ Ï†úÏïΩÏ°∞Í±¥Ïù¥ ÏóÜÏùå
 		return y;						// [1]
-	// ø©±‚º≠∫Œ≈Õ x¥¬ Zero∞° æ∆¥‘
+	// Ïó¨Í∏∞ÏÑúÎ∂ÄÌÑ∞ xÎäî ZeroÍ∞Ä ÏïÑÎãò
 	return Succ(Add(Pred(x), y));		// [2]
 
 }
 
-¿ß¿« øπ¡¶∏¶ ªÏ∆Ï∫∏∏È
-(1) ø¨ªÍ¿⁄ø° ¥Î«— ±‘ƒ¢¿ª ∏∏µÈ∞Ì
-(2) ∏µÁ ªÛ»≤ø° ¥Î«œø© ¿˚øÎ«“ ±‘ƒ¢¿Ã «◊ªÛ ¡∏¿Á«œ¥¬ ∞Õ¿ª ¡ı∏Ì«œ∞Ì
-(3) æÓ∂∞«— ªÛ»≤ø°º≠µµ ¿Ø¿œ«œ∞‘ «œ≥™∏∏ ¿÷¥Ÿ¥¬ ∞Õ¿ª ¡ı∏Ì«œ∞Ì
-(4) ±◊ ±‘ƒ¢ø° µ˚∂Û ƒ⁄µ˘¿Ã µ«æ˙¥Ÿ.
+ÏúÑÏùò ÏòàÏ†úÎ•º ÏÇ¥Ìé¥Î≥¥Î©¥
+(1) Ïó∞ÏÇ∞ÏûêÏóê ÎåÄÌïú Í∑úÏπôÏùÑ ÎßåÎì§Í≥†
+(2) Î™®Îì† ÏÉÅÌô©Ïóê ÎåÄÌïòÏó¨ Ï†ÅÏö©Ìï† Í∑úÏπôÏù¥ Ìï≠ÏÉÅ Ï°¥Ïû¨ÌïòÎäî Í≤ÉÏùÑ Ï¶ùÎ™ÖÌïòÍ≥†
+(3) Ïñ¥Îñ†Ìïú ÏÉÅÌô©ÏóêÏÑúÎèÑ Ïú†ÏùºÌïòÍ≤å ÌïòÎÇòÎßå ÏûàÎã§Îäî Í≤ÉÏùÑ Ï¶ùÎ™ÖÌïòÍ≥†
+(4) Í∑∏ Í∑úÏπôÏóê Îî∞Îùº ÏΩîÎî©Ïù¥ ÎêòÏóàÎã§.
 
-¿ß¿« ø¨ªÍ¿⁄ ¡ﬂø°º≠ ∫ÒæÓ ¿÷¥¬ ø¨ªÍ¿⁄ «‘ºˆø° ¥Î«œø©
-æ’¿« (1), (2), (3), (4)¿« ∞˙¡§¿ª µ˚∂Û ƒ⁄µ˘«œ∂Û
+ÏúÑÏùò Ïó∞ÏÇ∞Ïûê Ï§ëÏóêÏÑú ÎπÑÏñ¥ ÏûàÎäî Ïó∞ÏÇ∞Ïûê Ìï®ÏàòÏóê ÎåÄÌïòÏó¨
+ÏïûÏùò (1), (2), (3), (4)Ïùò Í≥ºÏ†ïÏùÑ Îî∞Îùº ÏΩîÎî©ÌïòÎùº
 
 
 NatNo Operator(NatNo x, NatNo y)
 {
 	// 
-	// ¿Ã ∞˜ø°º≠¥¬ ∏µÁ ∞ÊøÏø°º≠µµ ¿˚øÎµ«∞Ì
-	// ø¿¡˜ «œ≥™¿« ±‘ƒ¢∏∏ ¿˚øÎµ»¥Ÿ¥¬ ∞Õ¿ª ∫∏¿Œ¥Ÿ
+	// Ïù¥ Í≥≥ÏóêÏÑúÎäî Î™®Îì† Í≤ΩÏö∞ÏóêÏÑúÎèÑ Ï†ÅÏö©ÎêòÍ≥†
+	// Ïò§ÏßÅ ÌïòÎÇòÏùò Í∑úÏπôÎßå Ï†ÅÏö©ÎêúÎã§Îäî Í≤ÉÏùÑ Î≥¥Ïù∏Îã§
 	//
 	
 	.......
-	.......		// ¿ß¿« ±‘ƒ¢ø° µ˚∂Û Ω«¡¶∑Œ ƒ⁄µ˘¿ª «—¥Ÿ.
+	.......		// ÏúÑÏùò Í∑úÏπôÏóê Îî∞Îùº Ïã§Ï†úÎ°ú ÏΩîÎî©ÏùÑ ÌïúÎã§.
 	.......
 }
 
-∫Û ∞˜¿∏∑Œ µ«æÓ ¿÷¥¬ ∏µÁ ø¨ªÍ¿⁄ø° ¥Î«œø©
-∞¢∞¢ ¿ßøÕ ∞∞¿∫ πÊΩƒ¿∏∑Œ √§øˆ ≥÷¥¬¥Ÿ.
+Îπà Í≥≥ÏúºÎ°ú ÎêòÏñ¥ ÏûàÎäî Î™®Îì† Ïó∞ÏÇ∞ÏûêÏóê ÎåÄÌïòÏó¨
+Í∞ÅÍ∞Å ÏúÑÏôÄ Í∞ôÏùÄ Î∞©ÏãùÏúºÎ°ú Ï±ÑÏõå ÎÑ£ÎäîÎã§.
 
 ****/
 
@@ -372,7 +372,7 @@ NatNo Operator(NatNo x, NatNo y)
 		Div(NatNo,NatNo)-->NatNo
 		Mod(NatNo,NatNo)-->NatNo
 
-	For All x,y ß¶ NatNo, w= Succ(x) Let
+	For All x,y „èÑ NatNo, w= Succ(x) Let
 		IsZero(Zero()) ::=true
 		IsZero(Succ(x)) ::=false
 
