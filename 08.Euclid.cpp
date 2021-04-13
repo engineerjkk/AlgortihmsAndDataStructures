@@ -7,18 +7,18 @@ void main()
 	int nNmbr1, nNmbr2;
 	while (1) {
 		printf("Number 1 ? ");
-		scanf("%d", &nNmbr1);		// ¼ö ÇÏ³ª ÀÔ·Â
-		if (nNmbr1 <= 0)			// À½¼öÀÌ¸é ³¡³½´Ù
+		scanf("%d", &nNmbr1);		// ìˆ˜ í•˜ë‚˜ ìž…ë ¥
+		if (nNmbr1 <= 0)			// ìŒìˆ˜ì´ë©´ ëë‚¸ë‹¤
 			break;
 		printf("Number 2 ? ");
-		scanf("%d", &nNmbr2);		// ´Ù¸¥ ¼ö ÇÏ³ª ´õ ÀÔ·Â
+		scanf("%d", &nNmbr2);		// ë‹¤ë¥¸ ìˆ˜ í•˜ë‚˜ ë” ìž…ë ¥
 		int Euclid(int nBig, int nSmall);
-		printf("GCD: %d\n\n", Euclid(nNmbr1, nNmbr2));	// ÃÖ´ë°ø¾à¼ö Ãâ·Â
+		printf("GCD: %d\n\n", Euclid(nNmbr1, nNmbr2));	// ìµœëŒ€ê³µì•½ìˆ˜ ì¶œë ¥
 	}
 }
 
 int Euclid(int nBig, int nSmall)
-{	// GCD(Greatest Common Divisor)¸¦ °è»êÇÑ´Ù
+{	// GCD(Greatest Common Divisor)ë¥¼ ê³„ì‚°í•œë‹¤
 	int nRem = nBig % nSmall;
 	if (nRem == 0)
 		return nSmall;
