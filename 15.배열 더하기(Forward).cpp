@@ -26,15 +26,15 @@ void main()
 	}
 }
 
-// ¹è¿­¿¡¼­ n°³ÀÇ °ªµéÀ» Ãâ·ÂÇÏ°í ±×µéÀÇ ÇÕÀ» ¹İÈ¯ÇÑ´Ù
-int PrintArrayFwrd1(int a[], int n)		// n-1°³ÀÇ ¼øÈ¯°ú ³ª¸ÓÁö 1
+// ë°°ì—´ì—ì„œ nê°œì˜ ê°’ë“¤ì„ ì¶œë ¥í•˜ê³  ê·¸ë“¤ì˜ í•©ì„ ë°˜í™˜í•œë‹¤
+int PrintArrayFwrd1(int a[], int n)		// n-1ê°œì˜ ìˆœí™˜ê³¼ ë‚˜ë¨¸ì§€ 1
 {
 	/***
-	[ºĞÇÒ] ?
-	[ÀÏ¹İ±ÔÄ¢] p(a,n) ::= t=p(a,n-1),print a|n-1|,return t+a[n-1]
-	[ÁøÇà¹æÇâ] ? n--
-	[Áß´ÜÁ¶°Ç] ?n==0
-	[´Ü¼øÇØ] ?print X,return 0
+	[ë¶„í• ] ?
+	[ì¼ë°˜ê·œì¹™] p(a,n) ::= t=p(a,n-1),print a|n-1|,return t+a[n-1]
+	[ì§„í–‰ë°©í–¥] ? n--
+	[ì¤‘ë‹¨ì¡°ê±´] ?n==0
+	[ë‹¨ìˆœí•´] ?print X,return 0
 	***/
 	if (n == 0)
 		return 0;
@@ -43,14 +43,14 @@ int PrintArrayFwrd1(int a[], int n)		// n-1°³ÀÇ ¼øÈ¯°ú ³ª¸ÓÁö 1
 	return t + a[n - 1];
 }
 
-int PrintArrayFwrd2(int a[], int n)		// 1°³¿Í ³ª¸ÓÁö n-1°³ÀÇ ¼øÈ¯
+int PrintArrayFwrd2(int a[], int n)		// 1ê°œì™€ ë‚˜ë¨¸ì§€ n-1ê°œì˜ ìˆœí™˜
 {
 	/***
-	[ºĞÇÒ] ?
-	[ÀÏ¹İ±ÔÄ¢] p(n) ::= print a[0], t=p(a+1,n-1),return t+a[0]
-	[ÁøÇà¹æÇâ] ?
-	[Áß´ÜÁ¶°Ç] ?
-	[´Ü¼øÇØ] ?
+	[ë¶„í• ] ?
+	[ì¼ë°˜ê·œì¹™] p(n) ::= print a[0], t=p(a+1,n-1),return t+a[0]
+	[ì§„í–‰ë°©í–¥] ?
+	[ì¤‘ë‹¨ì¡°ê±´] ?
+	[ë‹¨ìˆœí•´] ?
 	***/
 	if (n == 0)
 		return 0;
@@ -58,13 +58,13 @@ int PrintArrayFwrd2(int a[], int n)		// 1°³¿Í ³ª¸ÓÁö n-1°³ÀÇ ¼øÈ¯
 	return PrintArrayFwrd2(a + 1, n - 1) + a[0];
 }
 
-int PrintArrayFwrd3(int a[], int n)		// n/2°³, 1°³, n/2°³ÀÇ ¼øÈ¯
+int PrintArrayFwrd3(int a[], int n)		// n/2ê°œ, 1ê°œ, n/2ê°œì˜ ìˆœí™˜
 {
 	/***
-	[ºĞÇÒ] ?
-	[ÀÏ¹İ±ÔÄ¢] p(n) ::= m=n/2,t1=p(a,m-1),print a[m],t2=p(a+m+1,n-m-1,return t1+a[m]+t2	[ÁøÇà¹æÇâ] ?
-	[Áß´ÜÁ¶°Ç] ?
-	[´Ü¼øÇØ] ?
+	[ë¶„í• ] ?
+	[ì¼ë°˜ê·œì¹™] p(n) ::= m=n/2,t1=p(a,m-1),print a[m],t2=p(a+m+1,n-m-1,return t1+a[m]+t2	[ì§„í–‰ë°©í–¥] ?
+	[ì¤‘ë‹¨ì¡°ê±´] ?
+	[ë‹¨ìˆœí•´] ?
 	***/
 	if (n == 0)
 		return 0;
