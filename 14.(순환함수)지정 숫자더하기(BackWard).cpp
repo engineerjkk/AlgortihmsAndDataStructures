@@ -29,15 +29,15 @@ void main()
 	}
 }
 
-// kºÎÅÍ n±îÁö °Å²Ù·Î Ãâ·ÂÇÏ°í ±×µéÀÇ ÇÕÀ» ¹İÈ¯ÇÑ´Ù
-int PrintK2NBwrd1(int k, int n)		// n-1°³ÀÇ ¼øÈ¯°ú ³ª¸ÓÁö 1
+// kë¶€í„° nê¹Œì§€ ê±°ê¾¸ë¡œ ì¶œë ¥í•˜ê³  ê·¸ë“¤ì˜ í•©ì„ ë°˜í™˜í•œë‹¤
+int PrintK2NBwrd1(int k, int n)		// n-1ê°œì˜ ìˆœí™˜ê³¼ ë‚˜ë¨¸ì§€ 1
 {
 	/***
-	[ºĞÇÒ] ?
-	[ÀÏ¹İ±ÔÄ¢] p(k,n) :: = print n, t=p(k,n-1),return t+n
-	[ÁøÇà¹æÇâ] ?
-	[Áß´ÜÁ¶°Ç] ? p(k,k) ::= print k, t=p(k,k-1),return t+k
-	[´Ü¼øÇØ] ?
+	[ë¶„í• ] ?
+	[ì¼ë°˜ê·œì¹™] p(k,n) :: = print n, t=p(k,n-1),return t+n
+	[ì§„í–‰ë°©í–¥] ?
+	[ì¤‘ë‹¨ì¡°ê±´] ? p(k,k) ::= print k, t=p(k,k-1),return t+k
+	[ë‹¨ìˆœí•´] ?
 	***/
 	if (k > n)
 		return 0;
@@ -45,14 +45,14 @@ int PrintK2NBwrd1(int k, int n)		// n-1°³ÀÇ ¼øÈ¯°ú ³ª¸ÓÁö 1
 	return PrintK2NBwrd1(k, n - 1) + n;
 }
 
-int PrintK2NBwrd2(int k, int n)		// 1°³¿Í ³ª¸ÓÁö n-1°³ÀÇ ¼øÈ¯
+int PrintK2NBwrd2(int k, int n)		// 1ê°œì™€ ë‚˜ë¨¸ì§€ n-1ê°œì˜ ìˆœí™˜
 {
 	/***
-	[ºĞÇÒ] ?
-	[ÀÏ¹İ±ÔÄ¢] p(n) ::= ?
-	[ÁøÇà¹æÇâ] ?
-	[Áß´ÜÁ¶°Ç] ?
-	[´Ü¼øÇØ] ?
+	[ë¶„í• ] ?
+	[ì¼ë°˜ê·œì¹™] p(n) ::= ?
+	[ì§„í–‰ë°©í–¥] ?
+	[ì¤‘ë‹¨ì¡°ê±´] ?
+	[ë‹¨ìˆœí•´] ?
 	***/
 	if (k > n)
 		return 0;
@@ -60,15 +60,15 @@ int PrintK2NBwrd2(int k, int n)		// 1°³¿Í ³ª¸ÓÁö n-1°³ÀÇ ¼øÈ¯
 	printf("%d ", k);
 	return t + k;
 }
-//¹İÅä¸· ³»±â
-int PrintK2NBwrd3(int k, int n)		// n/2°³, 1°³, n/2°³ÀÇ ¼øÈ¯
+//ë°˜í† ë§‰ ë‚´ê¸°
+int PrintK2NBwrd3(int k, int n)		// n/2ê°œ, 1ê°œ, n/2ê°œì˜ ìˆœí™˜
 {
 	/***
-	[ºĞÇÒ] ?
-	[ÀÏ¹İ±ÔÄ¢] p(k,n) :: =t1=, p(k,m-1), print m, t2= p(m+1,n), return t1+m+t2
-	[ÁøÇà¹æÇâ] ?
-	[Áß´ÜÁ¶°Ç] ?m=(k+n)/2=k
-	[´Ü¼øÇØ] ? p(k,k) ::=t1=p(m+1,k),print k, t2=p(k,k-1),return t1+k+t2
+	[ë¶„í• ] ?
+	[ì¼ë°˜ê·œì¹™] p(k,n) :: =t1=, p(k,m-1), print m, t2= p(m+1,n), return t1+m+t2
+	[ì§„í–‰ë°©í–¥] ?
+	[ì¤‘ë‹¨ì¡°ê±´] ?m=(k+n)/2=k
+	[ë‹¨ìˆœí•´] ? p(k,k) ::=t1=p(m+1,k),print k, t2=p(k,k-1),return t1+k+t2
 	***/
 	if(k>n)
 	return 0;
@@ -78,14 +78,14 @@ int PrintK2NBwrd3(int k, int n)		// n/2°³, 1°³, n/2°³ÀÇ ¼øÈ¯
 	int t2 = PrintK2NBwrd3(k,m-1);
 	return t1 + m + t2;
 }
-int PrintK2NBwrd4(int k, int n)		// n/3°³, 1°³, n/3°³,1°³ n/3°³,ÀÇ ¼øÈ¯
+int PrintK2NBwrd4(int k, int n)		// n/3ê°œ, 1ê°œ, n/3ê°œ,1ê°œ n/3ê°œ,ì˜ ìˆœí™˜
 {
 	/***
-	[ºĞÇÒ] ?
-	[ÀÏ¹İ±ÔÄ¢] p(k,n) :: =t1=, p(k,m-1), print m, t2= p(m+1,n), return t1+m+t2
-	[ÁøÇà¹æÇâ] ?
-	[Áß´ÜÁ¶°Ç] ?m=(k+n)/2=k
-	[´Ü¼øÇØ] ? p(k,k) ::=t1=p(m+1,k),print k, t2=p(k,k-1),return t1+k+t2
+	[ë¶„í• ] ?
+	[ì¼ë°˜ê·œì¹™] p(k,n) :: =t1=, p(k,m-1), print m, t2= p(m+1,n), return t1+m+t2
+	[ì§„í–‰ë°©í–¥] ?
+	[ì¤‘ë‹¨ì¡°ê±´] ?m=(k+n)/2=k
+	[ë‹¨ìˆœí•´] ? p(k,k) ::=t1=p(m+1,k),print k, t2=p(k,k-1),return t1+k+t2
 	***/
 	if (n-k<=1) {
 		int nSum = 0;
