@@ -16,15 +16,15 @@ void main()
 	}
 }
 
-// 1ºÎÅÍ n±îÁö Ãâ·ÂÇÏ°í ±×µéÀÇ ÇÕÀ» ¹ÝÈ¯ÇÑ´Ù
-int PrintToNFwrd(int n)		// n-1°³ÀÇ ¼øÈ¯°ú ³ª¸ÓÁö 1
+// 1ë¶€í„° nê¹Œì§€ ì¶œë ¥í•˜ê³  ê·¸ë“¤ì˜ í•©ì„ ë°˜í™˜í•œë‹¤
+int PrintToNFwrd(int n)		// n-1ê°œì˜ ìˆœí™˜ê³¼ ë‚˜ë¨¸ì§€ 1
 {
 	/***
-	[ºÐÇÒ] ?
-	[ÀÏ¹Ý±ÔÄ¢] p(n) ::= t=p(n-1),print n, return n+t
-	[ÁøÇà¹æÇâ] 10->0
-	[Áß´ÜÁ¶°Ç] nÀÌ 0ÀÌµÇ¸é Áß´Ü
-	[´Ü¼øÇØ] ?
+	[ë¶„í• ] ?
+	[ì¼ë°˜ê·œì¹™] p(n) ::= t=p(n-1),print n, return n+t
+	[ì§„í–‰ë°©í–¥] 10->0
+	[ì¤‘ë‹¨ì¡°ê±´] nì´ 0ì´ë˜ë©´ ì¤‘ë‹¨
+	[ë‹¨ìˆœí•´] ?
 	***/
 	if (n == 0) {
 		return 0;
