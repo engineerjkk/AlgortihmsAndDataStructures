@@ -1,15 +1,15 @@
-/* Äü Á¤·Ä(¹è¿­ÀÇ ºĞÇÒ °úÁ¤À» Ç¥½Ã) */
+/* í€µ ì •ë ¬(ë°°ì—´ì˜ ë¶„í•  ê³¼ì •ì„ í‘œì‹œ) */
 #include <stdio.h> 
 #include <stdlib.h> 
 
 #define swap(type, x, y) do {type t = x; x = y; y = t;} while (0)
 
-/*--- Äü Á¤·Ä(¹è¿­ÀÇ ºĞÇÒ °úÁ¤À» Ç¥½Ã) ---*/
+/*--- í€µ ì •ë ¬(ë°°ì—´ì˜ ë¶„í•  ê³¼ì •ì„ í‘œì‹œ) ---*/
 void quick(int a[], int left, int right)
 {
-	int pl = left;				/* ¿ŞÂÊ Ä¿¼­ */
-	int pr = right;				/* ¿À¸¥ÂÊ Ä¿¼­ */
-	int x = a[(pl + pr) / 2];	/* Ãà(°¡¿îµ¥ ¿ä¼Ò) */
+	int pl = left;				/* ì™¼ìª½ ì»¤ì„œ */
+	int pr = right;				/* ì˜¤ë¥¸ìª½ ì»¤ì„œ */
+	int x = a[(pl + pr) / 2];	/* ì¶•(ê°€ìš´ë° ìš”ì†Œ) */
 
 	int i;
 	printf("a[%d] ~ a[%d] : {", left, right);
@@ -34,25 +34,25 @@ void quick(int a[], int left, int right)
 int main(void)
 {
 	int i, nx;
-	int * x; /* ¹è¿­ÀÇ Ã¹ ¹øÂ° ¿ä¼Ò¿¡ ´ëÇÑ Æ÷ÀÎÅÍ */
+	int* x; /* ë°°ì—´ì˜ ì²« ë²ˆì§¸ ìš”ì†Œì— ëŒ€í•œ í¬ì¸í„° */
 
-	puts("Äü Á¤·Ä");
-	printf("¿ä¼Ú¼ö :");
-	scanf("%d", &nx);
-	x = calloc(nx, sizeof(int));
+	puts("í€µ ì •ë ¬");
+	printf("ìš”ì†Ÿìˆ˜ :");
+	scanf_s("%d", &nx);
+	x = (int*)calloc(nx, sizeof(int));
 
 	for (i = 0; i < nx; i++) {
 		printf("x[%d] :", i);
-		scanf("%d", &x[i]);
+		scanf_s("%d", &x[i]);
 	}
 
-	quick(x, 0, nx - 1);		/* ¹è¿­ x¸¦ Äü Á¤·Ä */
+	quick(x, 0, nx - 1);		/* ë°°ì—´ xë¥¼ í€µ ì •ë ¬ */
 
-	puts("¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇß½À´Ï´Ù.");
+	puts("ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í–ˆìŠµë‹ˆë‹¤.");
 	for (i = 0; i < nx; i++)
 		printf("x[%d] = %d\n", i, x[i]);
 
-	free(x);					/* ¹è¿­À» »èÁ¦ */
+	free(x);					/* ë°°ì—´ì„ ì‚­ì œ */
 
 	return 0;
 }
