@@ -8,5 +8,5 @@ height = **(int*)** calloc(number, sizeof(int));
 
 부가 설명을 하자면 **malloc**이 "**몇 바이트 할당해 주세요**" 라고 요청하는 것에 비해 **calloc**은 "**몇 바이트짜리 몇개 할당해 주세요**"라고 요청하는 것이다. 따라서 아래는 같은 표현입니다.  
 
-ar=(int *)malloc(10 *sizeof(int));  
+ar=(int *)malloc(10 * sizeof(int));  
 ar=(int *)calloc(10,sizeof(int));
